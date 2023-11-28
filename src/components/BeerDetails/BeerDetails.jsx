@@ -1,14 +1,25 @@
+import { useGetBeerByIdQuery } from "../../services/beersApi";
+import { useParams } from "react-router-dom";
 import Grid from "@mui/material/Grid";
-import { Box } from "@mui/material";
-import { useGetAllBeersQuery } from "../../services/beersApi";
+import Box from "@mui/material/Box";
 
 const BeerDetails = () => {
-  const { data, isLoading } = useGetAllBeersQuery();
-  console.log(data);
+  const { id } = useParams();
+  const { data, isLoading, isError } = useGetBeerByIdQuery(id);
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
+
+  if (isError) {
+    return <div>Error loading beer details</div>;
+  }
+
+  if (!data || data.length === 0) {
+    return <div>No data available</div>;
+  }
+
+  const { name, image_url, tagline, description, first_brewed } = data[0];
 
   return (
     <Grid
@@ -19,7 +30,7 @@ const BeerDetails = () => {
       justifyContent="center"
       sx={{ minHeight: "100vh", gap: 5 }}
     >
-      <img src={data.image_url} alt={data.name} />
+      <img src={image_url} alt={name} />
       <Box
         sx={{
           width: "50%",
@@ -28,10 +39,10 @@ const BeerDetails = () => {
           gap: 4,
         }}
       >
-        <h1>{data.name}</h1>
-        <p>Tagline: {data.tagline}</p>
-        <p>Description: {data.description}</p>
-        <p>First Brewed: {data.first_brewed}</p>
+        <h1>{name}</h1>
+        <p>Tagline: {tagline}</p>
+        <p>Description: {description}</p>
+        <p>First Brewed: {first_brewed}</p>
       </Box>
     </Grid>
   );

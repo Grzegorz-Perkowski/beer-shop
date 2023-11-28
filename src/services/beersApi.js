@@ -7,7 +7,10 @@ export const beersApi = createApi({
     getAllBeers: builder.query({
       query: () => "beers",
     }),
+    getBeerById: builder.query({
+      query: (id) => `beers/${id}`,
+    }),
   }),
 });
 
-export const { useGetAllBeersQuery } = beersApi;
+export const { useGetAllBeersQuery, useGetBeerByIdQuery } = beersApi;
