@@ -11,7 +11,6 @@ const StyledImg = styled.img`
   width: auto;
   display: flex;
   align-self: center;
-  justify-content: space-between;
 `;
 
 export { StyledImg, ButtonDiv };
