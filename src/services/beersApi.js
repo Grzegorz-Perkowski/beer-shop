@@ -4,10 +4,10 @@ export const beersApi = createApi({
   reducerPath: "beersApi",
   baseQuery: fetchBaseQuery({ baseUrl: "https://api.punkapi.com/v2/" }),
   endpoints: (builder) => ({
-    getAllProducts: builder.query({
+    getAllBeers: builder.query({
       query: () => "beers",
     }),
   }),
 });
 
-export const { useGetAllProductsQuery } = beersApi;
+export const { useGetAllBeersQuery } = beersApi;

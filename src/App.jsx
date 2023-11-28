@@ -3,7 +3,7 @@ import BeersList from "./components/BeersList/BeersList";
 import BeerDetails from "./components/BeerDetails/BeerDetails";
 import NotFound from "./pages/NotFound/NotFound";
 import Navbar from "./components/Navbar/Navbar";
-import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 
 function App() {
   return (

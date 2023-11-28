@@ -1,7 +1,8 @@
 import { StyledImg, ButtonDiv } from "./BeerItem.styles";
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function BeerItem({ id, name, src, tagline }) {
   BeerItem.propTypes = {
@@ -13,6 +14,7 @@ export default function BeerItem({ id, name, src, tagline }) {
 
   return (
     <Grid
+      item
       key={id}
       xs={12}
       sm={6}
@@ -20,10 +22,10 @@ export default function BeerItem({ id, name, src, tagline }) {
       lg={3}
       sx={{
         display: "flex",
-        justifyContent: "space",
+        justifyContent: "center",
         flexDirection: "column",
         gap: 2,
-        p: 4,
+        m: 4,
       }}
     >
       <StyledImg src={src} alt={name} />
@@ -34,7 +36,9 @@ export default function BeerItem({ id, name, src, tagline }) {
           Add to cart
         </Button>
 
-        <Button variant="contained">Read More</Button>
+        <Link to={`beers/${id}`} sx={{ width: "50%" }}>
+          <Button variant="contained">Read More</Button>
+        </Link>
       </ButtonDiv>
     </Grid>
   );

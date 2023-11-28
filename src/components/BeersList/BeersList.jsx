@@ -1,9 +1,9 @@
-import { useGetAllProductsQuery } from "../../services/beersApi";
-import Grid from "@mui/material/Unstable_Grid2";
+import { useGetAllBeersQuery } from "../../services/beersApi";
+import Grid from "@mui/material/Grid";
 import BeerItem from "../BeerItem/BeerItem";
 
 function BeersList() {
-  const { data, isLoading } = useGetAllProductsQuery();
+  const { data, isLoading } = useGetAllBeersQuery();
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -11,7 +11,14 @@ function BeersList() {
 
   return (
     <>
-      <Grid container spacing={2}>
+      <Grid
+        container
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "row",
+        }}
+      >
         {data?.map(({ id, name, image_url, tagline }) => (
           <BeerItem
             key={id}
