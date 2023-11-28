@@ -1,4 +1,6 @@
-### - Live : https://dummy-shop-react.netlify.app/
+# Dummy Shop
+
+### Live : https://dummy-shop-react.netlify.app/
 
 - [ ] Add bootstrap or MUI
 - [ ] Add styled-components
