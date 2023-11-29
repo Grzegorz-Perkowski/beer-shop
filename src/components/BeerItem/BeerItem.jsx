@@ -3,13 +3,14 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/cartSlice";
 
 export default function BeerItem({ id, name, src, tagline }) {
-  BeerItem.propTypes = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
-    tagline: PropTypes.string.isRequired,
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ id, quantity: 1 }));
   };
 
   return (
@@ -32,7 +33,11 @@ export default function BeerItem({ id, name, src, tagline }) {
       <h3>{name}</h3>
       <p>{tagline}</p>
       <ButtonDiv>
-        <Button variant="outlined" sx={{ width: "50%" }}>
+        <Button
+          variant="outlined"
+          sx={{ width: "50%" }}
+          onClick={handleAddToCart}
+        >
           Add to cart
         </Button>
 
@@ -43,3 +48,10 @@ export default function BeerItem({ id, name, src, tagline }) {
     </Grid>
   );
 }
+
+BeerItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  tagline: PropTypes.string.isRequired,
+};
