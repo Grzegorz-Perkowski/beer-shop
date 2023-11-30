@@ -1,14 +1,26 @@
-import { useGetBeerByIdQuery } from "../../services/beersApi";
+import { useGetBeerByIdQuery } from "../../services/api/beersApi";
 import { useParams } from "react-router-dom";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import Box from "@mui/material/Box";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const BeerDetails = () => {
   const { id } = useParams();
   const { data: beer, isLoading, isError } = useGetBeerByIdQuery(id);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
   }
 
   if (isError) {

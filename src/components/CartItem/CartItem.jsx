@@ -1,4 +1,4 @@
-import { useGetBeerByIdQuery } from "../../services/beersApi";
+import { useGetBeerByIdQuery } from "../../services/api/beersApi";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../store/cartSlice";

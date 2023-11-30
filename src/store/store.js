@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { beersApi } from "../services/beersApi";
+import { beersApi } from "../services/api/beersApi";
 import { cartSlice } from "./cartSlice";
 
 export const store = configureStore({

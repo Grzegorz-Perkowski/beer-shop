@@ -25,8 +25,12 @@ function Navbar() {
 
           <Typography variant="h6" noWrap component="div">
             <Link to="/cart" style={{ textDecoration: "none", color: "white" }}>
-              <ShoppingCartIcon />
-              {totalQuantity > 0 && <span>({totalQuantity})</span>}
+              <ShoppingCartIcon sx={{ fontSize: 30 }} />
+              {totalQuantity > 0 ? (
+                <span>({totalQuantity})</span>
+              ) : (
+                <span>(0)</span>
+              )}
             </Link>
           </Typography>
         </Toolbar>

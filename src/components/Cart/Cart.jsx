@@ -13,20 +13,24 @@ const Cart = () => {
         m: 2,
       }}
     >
-      <Grid
-        container
-        spacing={2}
-        display="flex"
-        flexDirection="column"
-        alignContent="flex-start"
-        m={4}
-      >
-        {cart.map(({ id, quantity }) => (
-          <Grid key={id}>
-            <CartItem id={id} quantity={quantity} />
-          </Grid>
-        ))}
-      </Grid>
+      {cart.length === 0 ? (
+        <h1>Your cart is empty.</h1>
+      ) : (
+        <Grid
+          container
+          spacing={4}
+          display="flex"
+          flexDirection="column"
+          alignContent="flex-start"
+          m={4}
+        >
+          {cart?.map(({ id, quantity }) => (
+            <Grid key={id}>
+              <CartItem id={id} quantity={quantity} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
     </Box>
   );
 };
