@@ -1,25 +1,13 @@
 import { useGetAllBeersQuery } from "../../services/api/beersApi";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import BeerItem from "../BeerItem/BeerItem";
-import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
+import CircularLoader from "../CircularLoader/CircularLoader";
 
 function BeersList() {
   const { data: beers, isLoading, isError } = useGetAllBeersQuery();
 
   if (isLoading) {
-    return (
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          minHeight: "100vh",
-        }}
-      >
-        <CircularProgress />
-      </Box>
-    );
+    return <CircularLoader />;
   }
 
   if (isError) {
