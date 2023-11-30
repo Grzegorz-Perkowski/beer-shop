@@ -58,8 +58,8 @@ const BeerDetails = () => {
         }}
       >
         <h1>{name}</h1>
-        <p>Tagline: {tagline}</p>
-        <p>Description: {description}</p>
+        <p> {tagline}</p>
+        <p>{description}</p>
         <p>First Brewed: {first_brewed}</p>
       </Box>
     </Grid>
