@@ -3,10 +3,18 @@ import Grid from "@mui/material/Grid";
 import BeerItem from "../BeerItem/BeerItem";
 
 function BeersList() {
-  const { data, isLoading } = useGetAllBeersQuery();
+  const { data: beers, isLoading, isError } = useGetAllBeersQuery();
 
   if (isLoading) {
     return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error loading beers list</div>;
+  }
+
+  if (!beers || beers.length === 0) {
+    return <div>No data available</div>;
   }
 
   return (
@@ -19,7 +27,7 @@ function BeersList() {
           flexDirection: "row",
         }}
       >
-        {data?.map(({ id, name, image_url, tagline }) => (
+        {beers?.map(({ id, name, image_url, tagline }) => (
           <BeerItem
             key={id}
             id={id}

@@ -3,7 +3,7 @@ import BeersList from "./components/BeersList/BeersList";
 import BeerDetails from "./components/BeerDetails/BeerDetails";
 import NotFound from "./pages/NotFound/NotFound";
 import Navbar from "./components/Navbar/Navbar";
-import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<BeersList />} />
         <Route path="beers/:id" element={<BeerDetails />} />
-        <Route path="/cart" element={<ShoppingCart />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

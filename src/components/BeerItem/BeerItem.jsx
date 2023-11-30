@@ -1,4 +1,3 @@
-import { StyledImg, ButtonDiv } from "./BeerItem.styles";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
@@ -29,10 +28,25 @@ export default function BeerItem({ id, name, src, tagline }) {
         m: 4,
       }}
     >
-      <StyledImg src={src} alt={name} />
+      <img
+        src={src}
+        alt={name}
+        style={{
+          maxHeight: "200px",
+          width: "auto",
+          display: "flex",
+          alignSelf: "center",
+        }}
+      />
       <h3>{name}</h3>
       <p>{tagline}</p>
-      <ButtonDiv>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: "20px",
+        }}
+      >
         <Button
           variant="outlined"
           sx={{ width: "50%" }}
@@ -41,10 +55,10 @@ export default function BeerItem({ id, name, src, tagline }) {
           Add to cart
         </Button>
 
-        <Link to={`beers/${id}`} sx={{ width: "50%" }}>
+        <Link to={`beers/${id}`} style={{ width: "50%" }}>
           <Button variant="contained">Read More</Button>
         </Link>
-      </ButtonDiv>
+      </div>
     </Grid>
   );
 }

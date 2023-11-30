@@ -8,7 +8,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { Box, Typography } from "@mui/material";
 
 const CartItem = ({ id, quantity }) => {
-  const { data, isLoading } = useGetBeerByIdQuery(id);
+  const { data, isLoading, isError } = useGetBeerByIdQuery(id);
 
   const dispatch = useDispatch();
 
@@ -23,16 +23,27 @@ const CartItem = ({ id, quantity }) => {
   if (isLoading) {
     return <p>Loading...</p>;
   }
+
+  if (isError) {
+    return <div>Error loading cart item</div>;
+  }
+
+  if (!data || data.length === 0) {
+    return <div>No data available</div>;
+  }
+
+  const { image_url, name, tagline } = data[0];
+
   return (
     <Box display="flex" alignItems="center" gap={4}>
       <img
-        src={data[0].image_url}
-        alt={data[0].name}
+        src={image_url}
+        alt={name}
         style={{ width: "auto", height: "200px" }}
       />
       <Box>
-        <Typography variant="h6">{data[0].name}</Typography>
-        <Typography variant="body2">{data[0].tagline}</Typography>
+        <Typography variant="h6">{name}</Typography>
+        <Typography variant="body2">{tagline}</Typography>
         <Box display="flex" alignItems="center">
           <IconButton onClick={handleRemoveFromCart}>
             <RemoveIcon />

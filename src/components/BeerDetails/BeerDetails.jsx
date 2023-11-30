@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 
 const BeerDetails = () => {
   const { id } = useParams();
-  const { data, isLoading, isError } = useGetBeerByIdQuery(id);
+  const { data: beer, isLoading, isError } = useGetBeerByIdQuery(id);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -15,11 +15,11 @@ const BeerDetails = () => {
     return <div>Error loading beer details</div>;
   }
 
-  if (!data || data.length === 0) {
+  if (!beer || beer.length === 0) {
     return <div>No data available</div>;
   }
 
-  const { name, image_url, tagline, description, first_brewed } = data[0];
+  const { name, image_url, tagline, description, first_brewed } = beer[0];
 
   return (
     <Grid

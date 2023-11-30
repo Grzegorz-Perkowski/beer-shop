@@ -3,7 +3,7 @@ import CartItem from "../CartItem/CartItem";
 import Grid from "@mui/material/Grid";
 import { Box, Typography } from "@mui/material";
 
-const ShoppingCart = () => {
+const Cart = () => {
   const cart = useSelector((state) => state.cart);
 
   return (
@@ -23,9 +23,9 @@ const ShoppingCart = () => {
         flexDirection="column"
         alignContent="center"
       >
-        {cart.map((cartItem) => (
-          <Grid item key={cartItem.id}>
-            <CartItem id={cartItem.id} quantity={cartItem.quantity} />
+        {cart.map(({ id, quantity }) => (
+          <Grid item key={id}>
+            <CartItem id={id} quantity={quantity} />
           </Grid>
         ))}
       </Grid>
@@ -33,4 +33,4 @@ const ShoppingCart = () => {
   );
 };
 
-export default ShoppingCart;
+export default Cart;
