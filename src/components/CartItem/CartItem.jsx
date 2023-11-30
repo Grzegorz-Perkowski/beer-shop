@@ -49,11 +49,11 @@ const CartItem = ({ id, quantity }) => {
         <Typography variant="body2">{tagline}</Typography>
         <Box display="flex" alignItems="center">
           <IconButton onClick={handleRemoveFromCart}>
-            <RemoveIcon />
+            <RemoveIcon color="primary" />
           </IconButton>
           <Typography variant="body1">{quantity}</Typography>
           <IconButton onClick={handleAddToCart}>
-            <AddIcon />
+            <AddIcon color="primary" />
           </IconButton>
         </Box>
       </Box>
