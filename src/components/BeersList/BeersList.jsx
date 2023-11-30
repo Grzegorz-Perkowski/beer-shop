@@ -1,5 +1,5 @@
 import { useGetAllBeersQuery } from "../../services/beersApi";
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import BeerItem from "../BeerItem/BeerItem";
 
 function BeersList() {
@@ -19,14 +19,7 @@ function BeersList() {
 
   return (
     <>
-      <Grid
-        container
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "row",
-        }}
-      >
+      <Grid container>
         {beers?.map(({ id, name, image_url, tagline }) => (
           <BeerItem
             key={id}

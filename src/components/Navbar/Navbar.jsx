@@ -26,7 +26,7 @@ function Navbar() {
           <Typography variant="h6" noWrap component="div">
             <Link to="/cart" style={{ textDecoration: "none", color: "white" }}>
               <ShoppingCartIcon />
-              {totalQuantity > 0 && <span>{totalQuantity}</span>}
+              {totalQuantity > 0 && <span>({totalQuantity})</span>}
             </Link>
           </Typography>
         </Toolbar>
