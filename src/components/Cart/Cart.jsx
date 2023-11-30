@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 import CartItem from "../CartItem/CartItem";
-import Grid from "@mui/material/Grid";
-import { Box, Typography } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -24,7 +25,7 @@ const Cart = () => {
         alignContent="center"
       >
         {cart.map(({ id, quantity }) => (
-          <Grid item key={id}>
+          <Grid key={id}>
             <CartItem id={id} quantity={quantity} />
           </Grid>
         ))}

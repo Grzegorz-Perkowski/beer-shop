@@ -5,7 +5,8 @@ import { addToCart, removeFromCart } from "../../store/cartSlice";
 import IconButton from "@mui/material/IconButton";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
-import { Box, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 const CartItem = ({ id, quantity }) => {
   const { data, isLoading, isError } = useGetBeerByIdQuery(id);

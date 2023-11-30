@@ -1,6 +1,6 @@
 import { useGetBeerByIdQuery } from "../../services/beersApi";
 import { useParams } from "react-router-dom";
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import Box from "@mui/material/Box";
 
 const BeerDetails = () => {
