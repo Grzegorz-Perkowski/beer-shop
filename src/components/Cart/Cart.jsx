@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import CartItem from "../CartItem/CartItem";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -14,15 +13,13 @@ const Cart = () => {
         m: 2,
       }}
     >
-      <Typography variant="h4" gutterBottom>
-        Shopping Cart
-      </Typography>
       <Grid
         container
         spacing={2}
         display="flex"
         flexDirection="column"
-        alignContent="center"
+        alignContent="flex-start"
+        m={4}
       >
         {cart.map(({ id, quantity }) => (
           <Grid key={id}>

@@ -21,7 +21,7 @@ export default function BeerItem({ id, name, src, tagline }) {
       lg={3}
       sx={{
         display: "flex",
-        justifyContent: "space",
+        justifyContent: "space-between",
         flexDirection: "column",
         gap: 2,
         p: 4,

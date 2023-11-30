@@ -37,11 +37,13 @@ const CartItem = ({ id, quantity }) => {
 
   return (
     <Box display="flex" alignItems="center" gap={4}>
-      <img
-        src={image_url}
-        alt={name}
-        style={{ width: "auto", height: "200px" }}
-      />
+      <Box style={{ width: "100px", height: "200px", overflow: "hidden" }}>
+        <img
+          src={image_url}
+          alt={name}
+          style={{ width: "100%", height: "100%", objectFit: "contain" }}
+        />
+      </Box>
       <Box>
         <Typography variant="h6">{name}</Typography>
         <Typography variant="body2">{tagline}</Typography>

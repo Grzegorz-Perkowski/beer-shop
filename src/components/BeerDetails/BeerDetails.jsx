@@ -30,7 +30,13 @@ const BeerDetails = () => {
       justifyContent="center"
       sx={{ minHeight: "100vh", gap: 5 }}
     >
-      <img src={image_url} alt={name} />
+      <Box style={{ width: "auto", height: "500px", overflow: "hidden" }}>
+        <img
+          src={image_url}
+          alt={name}
+          style={{ width: "100%", height: "100%", objectFit: "contain" }}
+        />
+      </Box>
       <Box
         sx={{
           width: "50%",
